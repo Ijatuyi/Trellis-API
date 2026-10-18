@@ -87,7 +87,9 @@ async function bootstrap() {
   });
 
   // Global configuration
-  app.setGlobalPrefix("api/v1");
+  app.setGlobalPrefix("api/v1", {
+    exclude: ["api/ws/(.*)", "api/ws/ticket"],
+  });
   // URI-based versioning (e.g. /api/v1/... and /api/v2/...).
   // The global prefix remains "api" while version segments appear per-route.
   app.enableVersioning({
